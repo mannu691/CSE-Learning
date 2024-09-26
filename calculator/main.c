@@ -48,7 +48,7 @@ char *calculateExpression(char str[])
 
             index--;
             index2--;
-            i--; // Check the same position again after shifting
+            i--; 
         }
     }
 
@@ -70,7 +70,7 @@ char *calculateExpression(char str[])
 
             index--;
             index2--;
-            i--; // Check the same position again after shifting
+            i--; 
         }
     }
 
@@ -92,10 +92,9 @@ char *calculateExpression(char str[])
 
             index--;
             index2--;
-            i--; // Check the same position again after shifting
+            i--; 
         }
     }
-
     char *result = (char *)malloc(20 * sizeof(char));
     sprintf(result, "%.3f", numbers[0]);
 
