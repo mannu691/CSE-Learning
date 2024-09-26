@@ -5,7 +5,7 @@
 #include <math.h>
 #include "../utils/utilio.c"
 const int MAX_BUFFER = 400;
-
+const int debug = 0;
 char *calculateExpression(char str[])
 {
     char *ptr = str;
@@ -96,8 +96,7 @@ char *calculateExpression(char str[])
         }
     }
     char *result = (char *)malloc(20 * sizeof(char));
-    sprintf(result, "%.3f", numbers[0]);
-
+    sprintf(result, "%.3f", numbers[0]);    
     return result;
 }
 
@@ -135,8 +134,10 @@ void calculator()
             }
             else if (c == ')' && bkt_index != -1)
             {
+                if(debug)printf("Solving %s ",(charcopy(inp, bkt_index , i)));
                 char *subExpr = charcopy(inp, bkt_index + 1, i - 1);
                 char *result = calculateExpression(subExpr);
+                if(debug)printf("= %s\n",result);
                 free(subExpr);
                 strncpy(calc, inp, bkt_index);
                 calc[bkt_index] = '\0';
@@ -169,7 +170,9 @@ int main()
     printf("  Enter your expression and get results!\n");
     printf("       Supports +, -, *, /, ^, ( )\n");
     printf("          Floating Precision: 3\n");
+    
     printf("  Type 'exit' to terminate the program.\n");
+    if(debug)printf("           =====Debugging=====\n");
     printf("=========================================\n");
 
     while (1)
