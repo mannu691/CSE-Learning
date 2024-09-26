@@ -1,32 +1,31 @@
 #include <stdio.h>
 int main()
 {
-    int a = 2;
+    int a = 5;
 
     for (int i = 0; i < a; i++)
-    {        
+    {
         for (int j = 0; j < a * 2 + 1; j++)
         {
-            int len = i*2+1;
-            if (j==a+1-len)
+            if (j >= a - i && j <= a + i)
             {
-                printf("1");
-                // if (j == i)
-                // {
-                //     printf("%d ", l2);
-                // }
-                // else if (j < i)
-                // {
-                //     printf("%d ", i + j + 1);
-                // }
-                // else
-                // {
-                //     printf("%d ", i - j - 1);
-                // }
+                int len = i * 2 + 1;
+                if (j == a)
+                {
+                    printf(" %d ", len);
+                }
+                else if (j < a)
+                {
+                    printf(" %d ", len + j - a);
+                }
+                else
+                {
+                    printf(" %d ", len - j + a);
+                }
             }
             else
             {
-                printf("0");
+                printf("   ");
             }
         }
         printf("\n");
