@@ -1,24 +1,8 @@
 #include <bits\stdc++.h>
 using namespace std;
 
-void solve(int n)
+void solve(string n)
 {
-    int num = (pow(10, n) - 1) / 3;
-    for (int i = 0; i <= n; i++)
-    {
-
-        cout << num << ":" << num % 66 << endl;
-        if (num % 66 == 0)
-        {
-            cout << num << endl;
-            return;
-        }
-        if (num % (num % 66) != 0 && num%6!=0)
-            i++;
-        num += 3 * pow(10, i);
-    }
-
-    cout << -1 << endl;
 }
 
 int main()
@@ -29,11 +13,22 @@ int main()
 #endif
     int t;
     cin >> t;
+
+    map<string, int> db = {};
     while (t--)
     {
-        int n;
-        cin >> n;
-        solve(n);
+        string str;
+        cin >> str;
+        if (db.emplace(pair(str, 0)).second)
+        {
+            cout << "OK" << endl;
+        }
+        else
+        {
+            cout<<str<<db.at(str)+1<<endl;
+            db.insert_or_assign(str,db.at(str)+1);
+        }
     }
+
     return 0;
 }
