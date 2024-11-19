@@ -1,1 +1,1 @@
-#include <cstdio>
+abs(a - b)+b
