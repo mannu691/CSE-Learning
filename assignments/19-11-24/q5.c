@@ -26,6 +26,7 @@ int main()
             return 1;
         }
     }
+    printf("%d can't be expressed as sum of two prime numbers\n");
 
     return 0;
 }
